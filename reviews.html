@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы | DreamPajamas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Mobile Menu и Header аналогично about.html -->
+
+    <!-- Основной контент -->
+    <main class="py-8 md:py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">Отзывы наших клиентов</h1>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Статистика отзывов -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-blue-400 mb-2">4.8</div>
+                            <div class="flex justify-center text-yellow-400 mb-2">
+                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <p class="text-gray-600">На основе 127 отзывов</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <span class="text-sm text-gray-600 w-16">5 звезд</span>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <!-- Остальные рейтинги аналогично -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Список отзывов -->
+                <div class="space-y-6">
+                    <!-- Отзыв 1 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     alt="Анна" class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Анна</h3>
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="text-gray-400 text-sm">2 недели назад</span>
+                        </div>
+                        <p class="text-gray-600 mb-3">
+                            Пижама просто потрясающая! Очень мягкая и приятная к телу. Заказывала впервые, но точно вернусь за еще одной парой. 
+                            Качество на высоте, все швы аккуратные.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i data-feather="check-circle" class="w-4 h-4 text-green-500 mr-1"></i>
+                            <span>Покупка подтверждена</span>
+                        </div>
+                    </div>
+
+                    <!-- Остальные отзывы аналогично -->
+                </div>
+
+                <!-- Форма добавления отзыва -->
+                <div class="mt-8 bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Оставить отзыв</h2>
+                    <form>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Ваша оценка</label>
+                            <div class="flex space-x-1" id="rating-stars">
+                                <button type="button" class="star text-2xl text-gray-300 hover:text-yellow-400" data-rating="1">★</button>
+                                <button type="button" class="star text-2xl text-gray-300 hover:text-yellow-400" data-rating="2">★</button>
+                                <button type="button" class="star text-2xl text-gray-300 hover:text-yellow-400" data-rating="3">★</button>
+                                <button type="button" class="star text-2xl text-gray-300 hover:text-yellow-400" data-rating="4">★</button>
+                                <button type="button" class="star text-2xl text-gray-300 hover:text-yellow-400" data-rating="5">★</button>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <textarea placeholder="Расскажите о вашем опыте..." 
+                                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                                     rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded transition duration-300">
+                            Отправить отзыв
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // JavaScript для рейтинга звездочек
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.dataset.rating);
+                document.querySelectorAll('.star').forEach((s, index) => {
+                    s.classList.toggle('text-yellow-400', index < rating);
+                    s.classList.toggle('text-gray-300', index >= rating);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

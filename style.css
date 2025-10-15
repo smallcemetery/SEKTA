@@ -1,0 +1,27 @@
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.gallery-thumbnail {
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.gallery-thumbnail.selected-thumbnail {
+    border-color: #60a5fa;
+}
+
+.size-option {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.size-option.selected-size {
+    background-color: #60a5fa;
+    color: white;
+}
+
+.star-rating {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}

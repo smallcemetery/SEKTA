@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | DreamPajamas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Mobile Menu и Header аналогично -->
+
+    <main class="py-8 md:py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">Контакты</h1>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Контактная информация -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">Контактная информация</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i data-feather="phone" class="w-5 h-5 text-blue-400 mr-3"></i>
+                                    <div>
+                                        <p class="text-gray-600">+7 (123) 456-78-90</p>
+                                        <p class="text-sm text-gray-500">Ежедневно с 9:00 до 21:00</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-feather="mail" class="w-5 h-5 text-blue-400 mr-3"></i>
+                                    <div>
+                                        <p class="text-gray-600">info@dreampajamas.ru</p>
+                                        <p class="text-sm text-gray-500">Ответим в течение 2 часов</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-feather="map-pin" class="w-5 h-5 text-blue-400 mr-3"></i>
+                                    <div>
+                                        <p class="text-gray-600">г. Москва, ул. Примерная, 123</p>
+                                        <p class="text-sm text-gray-500">Пн-Пт с 10:00 до 19:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Форма обратной связи -->
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">Обратная связь</h2>
+                            <form class="space-y-4">
+                                <div>
+                                    <input type="text" placeholder="Ваше имя" 
+                                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Ваш email" 
+                                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                </div>
+                                <div>
+                                    <textarea placeholder="Ваше сообщение" 
+                                              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" 
+                                              rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="bg-blue-400 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded transition duration-300">
+                                    Отправить сообщение
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Карта и дополнительная информация -->
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">Как нас найти</h2>
+                            <div class="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
+                                <p class="text-gray-500">Здесь будет карта</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">Часто задаваемые вопросы</h2>
+                            <div class="space-y-3">
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Как сделать заказ?</h3>
+                                    <p class="text-gray-600 text-sm">Выберите товар, добавьте в корзину и оформите заказ</p>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Есть ли доставка в регионы?</h3>
+                                    <p class="text-gray-600 text-sm">Да, доставляем по всей России</p>
+                                </div>
+                                <!-- Другие вопросы -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

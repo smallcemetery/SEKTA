@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина | DreamPajamas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header (такой же как в других файлах) -->
+    
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">Корзина</h1>
+        
+        <div id="cart-content">
+            <!-- Содержимое корзины будет загружено через JavaScript -->
+        </div>
+        
+        <div id="empty-cart" class="text-center py-12 hidden">
+            <i data-feather="shopping-bag" class="w-16 h-16 text-gray-300 mx-auto mb-4"></i>
+            <h2 class="text-2xl font-bold text-gray-600 mb-2">Корзина пуста</h2>
+            <p class="text-gray-500 mb-6">Добавьте товары из каталога</p>
+            <a href="catalog.html" class="bg-blue-400 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded transition duration-300">Перейти в каталог</a>
+        </div>
+    </div>
+
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContent = document.getElementById('cart-content');
+            const emptyCart = document.getElementById('empty-cart');
+
+            if (cart.length === 0) {
+                cartContent.classList.add('hidden');
+                emptyCart.classList.remove('hidden');
+                return;
+            }
+
+            let html = `
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
+                    <div class="hidden md:grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 font-medium text-gray-600">
+                        <div class="col-span-5">Товар</div>
+                        <div class="col-span-2 text-center">Размер</div>
+                        <div class="col-span-2 text-center">Количество</div>
+                        <div class="col-span-2 text-center">Цена</div>
+                        <div class="col-span-1"></div>
+                    </div>
+            `;
+
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                html += `
+                    <div class="border-b border-gray-200 last:border-b-0">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 px-6 py-4 items-center">
+                            <div class="col-span-5 flex items-center">
+                                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded mr-4">
+                                <div>
+                                    <h3 class="font-medium text-gray-800">${item.name}</h3>
+                                    <p class="text-gray-500 text-sm">${item.size}</p>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-center">${item.size}</div>
+                            <div class="col-span-2 text-center">
+                                <div class="flex items-center justify-center space-x-2">
+                                    <button onclick="updateQuantity(${index}, -1)" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button onclick="updateQuantity(${index}, 1)" class="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <div class="col-span-2 text-center font-medium">${itemTotal} ₽</div>
+                            <div class="col-span-1 text-center">
+                                <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-500">
+                                    <i data-feather="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+
+            // Итоговая сумма
+            html += `
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-lg font-medium">Итого:</span>
+                        <span class="text-2xl font-bold">${total} ₽</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full bg-blue-400 hover:bg-blue-500 text-white font-medium py-3 px-6 rounded transition duration-300">
+                        Оформить заказ
+                    </button>
+                </div>
+            `;
+
+            cartContent.innerHTML = html;
+            cartContent.classList.remove('hidden');
+            emptyCart.classList.add('hidden');
+            feather.replace();
+        }
+
+        function updateQuantity(index, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity += change;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+            updateCartCount();
+        }
+
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+            updateCartCount();
+        }
+
+        function checkout() {
+            alert('Заказ оформлен! В реальном приложении здесь была бы форма оформления заказа.');
+            localStorage.removeItem('cart');
+            loadCart();
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+            updateCartCount();
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

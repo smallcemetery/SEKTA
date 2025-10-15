@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | DreamPajamas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 bg-white z-50 md:hidden">
+        <div class="p-4">
+            <div class="flex justify-between items-center mb-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-400">DreamPajamas</a>
+                <button onclick="toggleMobileMenu()" class="p-2">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav class="space-y-4">
+                <a href="catalog.html" class="block text-lg font-medium text-gray-700 hover:text-blue-400 transition py-2">Каталог</a>
+                <a href="about.html" class="block text-lg font-medium text-gray-700 hover:text-blue-400 transition py-2">О нас</a>
+                <a href="reviews.html" class="block text-lg font-medium text-gray-700 hover:text-blue-400 transition py-2">Отзывы</a>
+                <a href="contact.html" class="block text-lg font-medium text-gray-700 hover:text-blue-400 transition py-2">Контакты</a>
+                <a href="account.html" class="block text-lg font-medium text-gray-700 hover:text-blue-400 transition py-2">Личный кабинет</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-400">DreamPajamas</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="catalog.html" class="text-gray-700 hover:text-blue-400 transition">Каталог</a>
+                <a href="about.html" class="text-blue-400 transition">О нас</a>
+                <a href="reviews.html" class="text-gray-700 hover:text-blue-400 transition">Отзывы</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-400 transition">Контакты</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2">
+                    <i data-feather="menu" class="w-5 h-5"></i>
+                </button>
+                <a href="search.html" class="text-gray-700 hover:text-blue-400 p-2">
+                    <i data-feather="search" class="w-5 h-5"></i>
+                </a>
+                <a href="cart.html" class="text-gray-700 hover:text-blue-400 p-2 relative">
+                    <i data-feather="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-400 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px]">0</span>
+                </a>
+                <a href="account.html" class="text-gray-700 hover:text-blue-400 p-2">
+                    <i data-feather="user" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="inline-flex items-center text-gray-700 hover:text-blue-600">
+                            <i data-feather="home" class="w-4 h-4 mr-2"></i>
+                            Главная
+                        </a>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-gray-400"></i>
+                            <span class="ml-1 text-gray-500 md:ml-2">О нас</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-8 md:py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">О DreamPajamas</h1>
+                
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-8">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Наша команда" class="w-full h-64 md:h-80 object-cover">
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Наша история</h2>
+                        <p class="text-gray-600 mb-4">
+                            DreamPajamas был основан в 2020 году с простой целью - создавать самые комфортные и качественные пижамы 
+                            для всей семьи. Начав с небольшой мастерской, сегодня мы стали одним из ведущих производителей домашней 
+                            одежды в России.
+                        </p>
+                        <p class="text-gray-600">
+                            Мы верим, что качественный сон начинается с комфортной одежды, и стремимся сделать каждую ночь наших 
+                            клиентов по-настоящему особенной.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Наши ценности</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 mr-4">
+                                    <i data-feather="heart" class="w-5 h-5 text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Качество</h3>
+                                    <p class="text-gray-600 text-sm">Используем только натуральные ткани и проверенные материалы</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 mr-4">
+                                    <i data-feather="shield" class="w-5 h-5 text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Надежность</h3>
+                                    <p class="text-gray-600 text-sm">Гарантия качества на всю продукцию и легкий возврат</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 rounded-full p-2 mr-4">
+                                    <i data-feather="users" class="w-5 h-5 text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800">Забота о клиентах</h3>
+                                    <p class="text-gray-600 text-sm">Индивидуальный подход к каждому покупателю</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Почему выбирают нас</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+                            <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="award" class="w-8 h-8 text-blue-400"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-800 mb-2">Премиальное качество</h3>
+                            <p class="text-gray-600 text-sm">Все изделия проходят строгий контроль качества</p>
+                        </div>
+                        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+                            <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="leaf" class="w-8 h-8 text-blue-400"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-800 mb-2">Экологичность</h3>
+                            <p class="text-gray-600 text-sm">Используем экологически чистые материалы</p>
+                        </div>
+                        <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+                            <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="truck" class="w-8 h-8 text-blue-400"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-800 mb-2">Быстрая доставка</h3>
+                            <p class="text-gray-600 text-sm">Доставляем заказы по всей России за 2-5 дней</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-blue-50 rounded-lg p-6 md:p-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Присоединяйтесь к нам</h2>
+                    <p class="text-gray-600 text-center mb-6">
+                        Станьте частью семьи DreamPajamas и откройте для себя мир комфорта и уюта
+                    </p>
+                    <div class="text-center">
+                        <a href="catalog.html" class="bg-blue-400 hover:bg-blue-500 text-white font-medium py-3 px-8 rounded-full transition duration-300 inline-block">
+                            Начать покупки
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-8 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-6">
+                <div>
+                    <h3 class="text-lg font-bold mb-3">DreamPajamas</h3>
+                    <p class="text-gray-400 text-sm">Уютные пижамы для всей семьи из натуральных тканей. Качество и комфорт в каждой детали.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-3">Меню</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Главная</a></li>
+                        <li><a href="catalog.html" class="text-gray-400 hover:text-white transition">Каталог</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">О нас</a></li>
+                        <li><a href="reviews.html" class="text-gray-400 hover:text-white transition">Отзывы</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-3">Контакты</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2"></i>
+                            <span>+7 (123) 456-78-90</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                            <span>info@dreampajamas.ru</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="w-4 h-4 mr-2"></i>
+                            <span>г. Москва, ул. Примерная, 123</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-3">Мы в соцсетях</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="bg-gray-700 hover:bg-blue-600 h-10 w-10 rounded-full flex items-center justify-center transition">
+                            <i data-feather="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-blue-800 h-10 w-10 rounded-full flex items-center justify-center transition">
+                            <i data-feather="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-red-600 h-10 w-10 rounded-full flex items-center justify-center transition">
+                            <i data-feather="youtube" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-4 text-center">
+                <p class="text-gray-400 text-sm">© 2023 DreamPajamas. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('open');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', toggleMobileMenu);
+            });
+        });
+    </script>
+</body>
+</html>
